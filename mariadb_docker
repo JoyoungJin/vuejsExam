@@ -1,0 +1,11 @@
+docker 설치
+docker pull mariadb
+docker image ls
+docker run --name mariadb -d -p 3306:3306 -e(환경변수) MYSQL_ROOT-PASSWORD=mariadb mariadb
+docker ps (실행된것 확인)
+docker exec -it mariadb /bin/bash (접속하는 방법)
+mysql -u root -p
+password 입력
+
+접속후
+status (설치 확인)
