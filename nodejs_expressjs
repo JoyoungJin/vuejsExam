@@ -1,0 +1,8 @@
+1. 웹서버 구축하기
+2. nodejs 설치하기
+node -v 버전확인
+npm -v npm 버전확인
+3. express js 설치
+    npm install express --save 
+4. express session 설치
+5. mariadb 연동을 위한 mysql 설치
