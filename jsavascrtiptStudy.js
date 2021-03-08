@@ -9,6 +9,7 @@
 // 2. 변수
 // -let 
 //  Mutable
+// rw(read/write) 메모리에서 읽기 쓰기 전부가능
 {
     let name = 'jo';
     console.log(jo);
@@ -23,14 +24,16 @@ var age;
 
 // 3. Const 
 // immutable
-// 왠만하면 상수로 선언하라.
+// r(read) 메모리에서 읽기만 가능
+// 변수가 바뀔 이유가 없다면 상수로 선언하라.
 // 보안에 강하다
 // thread safety
 // 코드를 변경하거나 바꿀 때 실수를 방지해 줄 수 있다.
 
 // 4. 데이터 타입
-// -오브젝트, box container, function
-// -first-class function (function도 데이터 타입중 하나이다. 파라미터의 인자로도 사용가능하고 리턴도 가능하다.)
+// 기본형 타입은 값이 메모리에 직접 저장된다
+// 그러나 오브젝트는 오브젝트를 가르키는 레퍼런스가 저장된다.
+// first-class function (function도 데이터 타입중 하나이다. 파라미터의 인자로도 사용가능하고 리턴도 가능하다.)
 
 // -number
 const count = 17; //integer
@@ -83,3 +86,56 @@ text = 6;
 // 에러 발생!!
 console.log(text.charAt(0));
 
+// 6. Ternary operator: ?
+// condition ? value1 : value2;
+// 코드의 가독성이 떨어지기 때문에 간단한 경우에만 사용하는 것이 좋다.
+console.log(name === 'jo' ? 'yes' : 'no');
+
+// 7.function
+// 하나의 함수는 하나의 일만 하게 만들어야 된다.
+// 함수명은 동사 or doSomething
+// 자바스크립트에서 함수는 object의 일종이다.
+
+// 8.파라미터
+// Default parameters(es6 추가)
+// 원하는 default값을 직접 지정할 수 있다.
+function showMessage(message, from = 'unknown') {
+
+  condole.log(`${message} by ${from}`);
+
+}
+
+showMessage('helloWorld');
+
+// Rest parameters
+// 파라미터의 인자로 배열을 담을 수 있다. (...args)
+// 조건이 맞지 않거나 값이 없을 경우 빠르게 리턴을 한다.
+
+// 9. 함수표현식(function expression)
+// 함수표현식은 할당 된 다음에 호출이 가능한 반면 function declaration은 선언하기 전에 호출이 가능하다.
+ 
+// 10. callback function
+// 콜백 함수란 객체의 상태 변화가 발생하면 함수를 통해 전달하는 함수
+
+// 11. 화살표 함수
+// 화살표 함수는 항상 이름이 없는 unnamed function
+const simpleprint = () => console.log('simple');
+ 
+// 12. class(es6 추가됨)
+// fields 와 methods 같은 관련있는 것들로 묶어 놓은것을 class라 한다.
+// class = template
+
+// getter and setter를 쓰는 이유
+// -데이터를 외부에서 직접적으로 접근하는것을 막아 놓기 위해
+// -즉 객체의 무결성을 보장하기 위함이다.
+
+// 상속을 사용하는 이유
+// -공통된 사항들을 굳이 반복하여 작성하지 재사용하여
+// -생산성이 증가된다.
+
+// 오버라이딩
+// -부모의 메소드를 재정의하여 사용할 수 있다.
+// -또한 부모의 메소드를 super로 직접 불러와 사용할 수 있다.
+
+// 13. object 정리
+// 
