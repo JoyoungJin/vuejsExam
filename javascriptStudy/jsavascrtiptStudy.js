@@ -12,7 +12,7 @@
 // rw(read/write) 메모리에서 읽기 쓰기 전부가능
 {
     let name = 'jo';
-    console.log(jo);
+    console.log(name);
     name = 'young';
     console.log(name);
 }
@@ -61,7 +61,7 @@ console.log(hellojo);
 
 // -object
 // const로 지정된 jo는 변경이 불가하지만 jo안에 있는 name, age는 변수이므로 변경이 가능하다.
-const jo = { name: 'jo', age = 30 };
+const jo = { name: 'jo', age : 30 };
 jo.name = youngjin;
 jo.age = 31;
 
@@ -181,23 +181,4 @@ console.log(arr4.indexOf(3));
 console.log(arr4.includes(2));
 // 마지막 인덱스의 값을 찾아온다.
 console.log(arr4.lastIndexOf(3));
-
-// 15. 배열 연습
-// 배열 값을 스트링으로 묶어 내기
-const array1 = [1,2,3];
-console.log(array1.join(','));
-
-// 주어진 string를 array로 변환하기
-const arrValue = ['1, 2, 3, 4'];
-const result = arrValue.split(',');
-console.log(result);
-
-// 주어진 배열을 거꾸로 뒤집기
-const result = array1.reverse();
-console.log(result)
-
-// 특정 구간의 배열의 값을 삭제
-const array2 = [1,2,3,4,5];
-const result = array2.slice(2, 5);
-console.log(result);
 
