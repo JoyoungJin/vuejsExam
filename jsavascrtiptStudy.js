@@ -139,3 +139,65 @@ const simpleprint = () => console.log('simple');
 
 // 13. object 정리
 // 
+
+// 14. Array 개념정의
+// 한 배열 안에는 동일한 타입의 데이터를 넣는다.
+// 배열 선언 방법
+const arr1 = new Array();
+const arr2 = [1,2];
+// array loop
+// a. for
+for(let i = 0; i > arr2.length; i++) {
+  console.log(arr2[i]);
+}
+// b. for of
+for(let num of arr2) {
+  console.log(num);
+}
+// c. forEach
+// arr.forEach( (value, index, array) => ());
+arr2.forEach( (arr) => console.log(arr)); 
+// d. Addtion, deletion
+//Addtion(삽입)
+arr2.push(3);
+//deletion(삭제)
+arr2.pop();
+//unshift(앞에서부터 삽입)
+arr2.unshift(0);
+//shift(앞에서부터 삭제) shift와 unshift 는 느리다!!!!
+arr2.shift();
+// splice(출발, 출발부터 몇개)
+arr2.push(4,5);
+arr2.splice(0, 0);
+
+// 배열 2개를 합치기
+const arr3 = [5,6];
+const arr4 = arr2.concat(arr3);
+console.log(arr4);
+
+// 배열 검색
+console.log(arr4.indexOf(3));
+// 포함 확인
+console.log(arr4.includes(2));
+// 마지막 인덱스의 값을 찾아온다.
+console.log(arr4.lastIndexOf(3));
+
+// 15. 배열 연습
+// 배열 값을 스트링으로 묶어 내기
+const array1 = [1,2,3];
+console.log(array1.join(','));
+
+// 주어진 string를 array로 변환하기
+const arrValue = ['1, 2, 3, 4'];
+const result = arrValue.split(',');
+console.log(result);
+
+// 주어진 배열을 거꾸로 뒤집기
+const result = array1.reverse();
+console.log(result)
+
+// 특정 구간의 배열의 값을 삭제
+const array2 = [1,2,3,4,5];
+const result = array2.slice(2, 5);
+console.log(result);
+
