@@ -21,9 +21,12 @@ const server = app.listen(3000, () => {
 
 let sql = require("./sql.js");
 
-//변경된 sql.js파일을 다시 재등록 해준다.
+// 변경된 sql.js파일을 다시 재등록 해준다.
+// fs.watchfile로 sql.js를 보고 있다가 spl.js에 변경이 일어나면 캐쉬에서 삭제 후
+// 재등록 해준다.
+// ********************중요*******************
 fs.watchFile(__dirname + "/sql.js", (curr, prev) => {
-  console.log("sql 변경시 재시작 없이 반영");
+  console.log("sql 재반영");
   delete require.cache[require.resolve("./sql.js")];
   sql = require("./sql.js");
 });
@@ -32,14 +35,14 @@ fs.watchFile(__dirname + "/sql.js", (curr, prev) => {
 const db = {
   database: "dev",
   connectionLimit: 10,
-  host: "192.168.0.102",
+  host: "127.0.0.1",
   user: "root",
   password: "mariadb",
 };
 
 const dbPool = require("mysql").createPool(db);
 
-//login, logout 테스트
+// login, logout 테스트
 app.post("/api/login", async (request, res) => {
   request.session["email"] = "dydwls4938@gmail.com";
   res.send("ok");
@@ -53,9 +56,9 @@ app.post("/api/logout", async (request, res) => {
 //data 요청
 //:alias = login, logout외의 요청을 받아내는 post
 app.post("/api/:alias", async (request, res) => {
-  if (!request.session.email) {
-    return res.status(401).send({ error: "You need to login" });
-  }
+  // if (!request.session.email) {
+  //   return res.status(401).send({ error: "You need to login" });
+  // }
 
   try {
     res.send(await req.db(request.params.alias));
